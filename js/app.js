@@ -243,13 +243,117 @@
     els.forEach((el) => io.observe(el));
   }
 
-  // Stats
-  $("#statModels").textContent = PRODUCTS.length;
-  $("#statFrom").textContent = money(Math.min(...PRODUCTS.map((p) => p.price)));
+  /* --------------------------- Effects --------------------------- */
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function countUp(el, to, fmt = (n) => n) {
+    if (reduceMotion) { el.textContent = fmt(to); return; }
+    const dur = 1600, t0 = performance.now();
+    const tick = (t) => {
+      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 4);
+      el.textContent = fmt(Math.round(to * e));
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  function scrollProgress() {
+    const bar = $("#progress");
+    const update = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+    };
+    addEventListener("scroll", update, { passive: true });
+    update();
+  }
+
+  function cardFx() {
+    if (!finePointer || reduceMotion) return;
+    const grid = $("#grid");
+    grid.addEventListener("pointermove", (e) => {
+      const c = e.target.closest(".card");
+      if (!c) return;
+      const r = c.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      c.style.setProperty("--mx", `${x * 100}%`);
+      c.style.setProperty("--my", `${y * 100}%`);
+      c.style.setProperty("--rx", `${(0.5 - y) * 6}deg`);
+      c.style.setProperty("--ry", `${(x - 0.5) * 8}deg`);
+    });
+    grid.addEventListener("pointerout", (e) => {
+      const c = e.target.closest(".card");
+      if (c && !c.contains(e.relatedTarget)) { c.style.removeProperty("--rx"); c.style.removeProperty("--ry"); }
+    });
+  }
+
+  function heroParallax() {
+    if (!finePointer || reduceMotion) return;
+    const stage = $(".hero__stage"), phones = $("#heroPhones");
+    $(".hero").addEventListener("pointermove", (e) => {
+      const r = stage.getBoundingClientRect();
+      const x = (e.clientX - (r.left + r.width / 2)) / r.width;
+      const y = (e.clientY - (r.top + r.height / 2)) / r.height;
+      phones.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 10}deg)`;
+    });
+    $(".hero").addEventListener("pointerleave", () => (phones.style.transform = ""));
+  }
+
+  /* --------------------------- Preloader --------------------------- */
+  function preloader(onDone) {
+    const el = $("#preloader"), bar = $("#plBar"), pct = $("#plPct");
+    if (!el) return onDone();
+    const t0 = performance.now();
+    const MIN = reduceMotion ? 200 : 2300;   // let the logo animation play
+    const MAX = 7000;                         // never trap the visitor
+    let loaded = document.readyState === "complete", shown = 0, finished = false;
+    addEventListener("load", () => (loaded = true), { once: true });
+
+    const step = () => {
+      const elapsed = performance.now() - t0;
+      const target = loaded && elapsed >= MIN ? 100 : Math.min(92, (elapsed / MIN) * 92);
+      shown += (target - shown) * 0.12;
+      if (target === 100 && shown > 99.4) shown = 100;
+      bar.style.transform = `scaleX(${shown / 100})`;
+      pct.textContent = Math.floor(shown);
+      if (shown >= 100 || elapsed > MAX) return finish();
+      requestAnimationFrame(step);
+    };
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      bar.style.transform = "scaleX(1)";
+      pct.textContent = "100";
+      setTimeout(() => {
+        el.classList.add("is-done");                       // gold + dark curtains rise
+        setTimeout(() => {
+          document.body.classList.remove("is-loading");
+          el.classList.add("is-leaving");                  // wipe preloader away
+          onDone();
+          setTimeout(() => el.remove(), 1100);
+        }, reduceMotion ? 0 : 1150);
+      }, 250);
+    };
+    requestAnimationFrame(step);
+  }
+
+  /* --------------------------- Boot --------------------------- */
+  const minPrice = Math.min(...PRODUCTS.map((p) => p.price));
+  $("#statModels").textContent = "0";
+  $("#statFrom").textContent = money(0);
   $("#year").textContent = new Date().getFullYear();
 
   renderFlagships();
   renderGrid();
   bind();
-  reveal();
+  scrollProgress();
+  cardFx();
+  heroParallax();
+
+  preloader(() => {
+    document.body.classList.add("is-ready");
+    reveal();
+    countUp($("#statModels"), PRODUCTS.length);
+    countUp($("#statFrom"), minPrice, money);
+  });
 })();
