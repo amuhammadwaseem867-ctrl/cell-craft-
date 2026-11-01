@@ -145,7 +145,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   background: var(--pearl); box-shadow: 0 40px 80px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.08);
   display: grid; place-items: center;
 }
-.hero__phone img { width: 92%; mix-blend-mode: multiply; }
+.hero__phone img { max-width: 78%; max-height: 90%; width: auto; height: auto; mix-blend-mode: multiply; }
 .hero__phone--back { transform: translate(-110px, -30px) rotate(-9deg); animation: float 7s ease-in-out infinite; }
 .hero__phone--front { width: 270px; transform: translate(90px, 30px) rotate(6deg); animation: float 7s ease-in-out -3.5s infinite; z-index: 2; }
 @keyframes float { 50% { translate: 0 -14px; } }
@@ -188,8 +188,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .flag::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(70% 60% at 25% 40%, rgba(212,176,122,.18), transparent 70%); }
 .flag:hover { border-color: rgba(212,176,122,.4); transform: translateY(-4px); }
-.flag__img { aspect-ratio: 160/212; border-radius: 26px; background: var(--pearl); display: grid; place-items: center; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
-.flag__img img { width: 90%; mix-blend-mode: multiply; transition: transform .8s var(--ease); }
+.flag__img { aspect-ratio: 1 / 1; border-radius: 26px; background: var(--pearl); display: grid; place-items: center; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+.flag__img img { max-width: 90%; max-height: 88%; width: auto; height: auto; mix-blend-mode: multiply; transition: transform .8s var(--ease); }
 .flag:hover .flag__img img { transform: scale(1.05) rotate(-2deg); }
 .flag__brand { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
 .flag h3 { margin: 10px 0 16px; font-family: var(--serif); font-weight: 600; letter-spacing: -.035em; font-size: clamp(28px, 2.6vw, 40px); line-height: 1.05; }
@@ -232,7 +232,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @keyframes cardIn { from { opacity: 0; transform: translateY(18px); } }
 .card:hover { transform: translateY(-6px); border-color: rgba(212,176,122,.38); box-shadow: 0 40px 60px -40px rgba(212,176,122,.35); }
 .card__stage { position: relative; margin: 10px 10px 0; aspect-ratio: 1 / 1; border-radius: 16px; background: var(--pearl); display: grid; place-items: center; overflow: hidden; cursor: pointer; }
-.card__stage img { height: 86%; width: auto; mix-blend-mode: multiply; transition: transform .8s var(--ease); }
+.card__stage img { max-width: 90%; max-height: 86%; width: auto; height: auto; mix-blend-mode: multiply; transition: transform .8s var(--ease); }
 .card__stage svg { height: 84%; width: auto; filter: drop-shadow(0 14px 14px rgba(0,0,0,.3)); transition: transform .8s var(--ease); }
 .card:hover .card__stage img, .card:hover .card__stage svg { transform: scale(1.06); }
 .badge {
@@ -312,7 +312,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .modal__close:hover { border-color: var(--gold); color: var(--gold); }
 .modal__body { display: grid; grid-template-columns: 1fr 1.15fr; }
 .modal__stage { position: relative; min-height: 520px; background: var(--pearl); display: grid; place-items: center; }
-.modal__stage img { width: 62%; mix-blend-mode: multiply; }
+.modal__stage img { max-width: 86%; max-height: 82%; width: auto; height: auto; mix-blend-mode: multiply; }
 .modal__stage svg { height: 70%; width: auto; filter: drop-shadow(0 18px 18px rgba(0,0,0,.3)); }
 .flag__img svg { height: 86%; width: auto; filter: drop-shadow(0 14px 14px rgba(0,0,0,.3)); }
 .modal__info { padding: 48px 44px 40px; }
@@ -364,7 +364,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .toolbar .select, .toolbar .select select { width: 100%; }
   .modal__body { grid-template-columns: 1fr; }
   .modal__stage { min-height: 340px; }
-  .modal__stage img { width: 46%; }
+  .modal__stage img { max-width: 84%; }
   .modal__info { padding: 30px 24px 28px; }
   .footer__cols { gap: 48px; }
   .fab { right: 16px; bottom: 16px; width: 56px; height: 56px; }

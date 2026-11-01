@@ -57,7 +57,7 @@ window.PRODUCTS = [
     },
   },
   {
-    id: "a24", brand: "Samsung", series: "Galaxy A", name: "Galaxy A24", price: 4000, img: null, year: 2023,
+    id: "a24", brand: "Samsung", series: "Galaxy A", name: "Galaxy A24", price: 4000, img: "a24", year: 2023,
     highlights: ["Super AMOLED", "50MP OIS", "5000mAh"],
     specs: {
       Display: "6.5\" FHD+ Super AMOLED, 90Hz",
@@ -171,7 +171,7 @@ window.PRODUCTS = [
 
   /* ---------------- APPLE ---------------- */
   {
-    id: "ip7", brand: "Apple", series: "iPhone 7–8", name: "iPhone 7", price: 2200, img: null, year: 2016, badge: "Box Pack",
+    id: "ip7", brand: "Apple", series: "iPhone 7–8", name: "iPhone 7", price: 2200, img: "ip7", year: 2016, badge: "Box Pack",
     highlights: ["4.7\" Retina HD", "A10 Fusion", "Touch ID"],
     specs: {
       Display: "4.7\" Retina HD LCD",
