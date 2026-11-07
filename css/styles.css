@@ -1,7 +1,5 @@
-/* =========================================================
-   CellCraft — premium storefront
-   Palette: obsidian black · champagne gold · ivory
-   ========================================================= */
+/* CellCraft, premium storefront
+   Palette: obsidian black · champagne gold · ivory */
 :root {
   --bg: #0a0a0b;
   --bg-2: #111012;
@@ -48,7 +46,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 @keyframes grain { 0%,100% { transform: translate(0,0) } 25% { transform: translate(-3%,2%) } 50% { transform: translate(2%,-3%) } 75% { transform: translate(-2%,-1%) } }
 
-/* ---------- Type ---------- */
+/* Type */
 .eyebrow {
   margin: 0 0 18px; font-size: 12px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase;
   color: var(--gold);
@@ -65,7 +63,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .lead { color: var(--ink-2); font-size: clamp(16px, 1.3vw, 19px); font-weight: 500; max-width: 540px; margin: 26px 0 0; }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 .btn {
   --h: 52px;
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -86,7 +84,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .icon-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-/* ---------- Announcement + header ---------- */
+/* Announcement + header */
 .announce {
   display: flex; justify-content: center; align-items: center; gap: 10px;
   padding: 10px 16px; font-size: 13px; color: var(--ink-2); border-bottom: 1px solid var(--line);
@@ -121,7 +119,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .mobile-menu[hidden] { display: none; }
 .mobile-menu a { padding: 14px 4px; font-family: var(--serif); font-size: 26px; font-weight: 800; letter-spacing: -.03em; border-bottom: 1px solid var(--line); }
 
-/* ---------- Hero ---------- */
+/* Hero */
 .hero { position: relative; overflow: hidden; padding: 72px 0 100px; }
 .hero__glow {
   position: absolute; inset: -20% -10% auto auto; width: 900px; height: 900px; border-radius: 50%;
@@ -161,25 +159,25 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .chip--a { right: 0; bottom: 110px; animation: float 6s ease-in-out -1s infinite; }
 .chip--b { left: 0; top: 90px; animation: float 6s ease-in-out -4s infinite; }
 
-/* ---------- Marquee ---------- */
+/* Marquee */
 .marquee { overflow: hidden; border-block: 1px solid var(--line); padding: 26px 0; background: var(--bg-2); }
 .marquee__track { display: flex; gap: 38px; width: max-content; animation: marquee 50s linear infinite; font-family: var(--serif); font-size: 30px; font-weight: 800; letter-spacing: -.03em; color: transparent; -webkit-text-stroke: 1px rgba(212,176,122,.45); white-space: nowrap; }
 .marquee__track i { font-style: normal; color: var(--gold); font-size: 20px; align-self: center; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* ---------- Trust ---------- */
+/* Trust */
 .trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-block: 90px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 .trust__item { display: flex; gap: 16px; align-items: flex-start; padding: 30px 26px; background: var(--bg); }
 .trust__item svg { flex: none; width: 30px; height: 30px; color: var(--gold); }
 .trust__item h3 { margin: 0 0 4px; font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
 .trust__item p { margin: 0; font-size: 14px; font-weight: 500; color: var(--ink-3); }
 
-/* ---------- Sections ---------- */
+/* Sections */
 .section { padding: 110px 0; }
 .section--tint { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 12%, var(--bg-2) 88%, var(--bg) 100%); }
 .section__head { margin-bottom: 56px; }
 
-/* ---------- Flagships ---------- */
+/* Flagships */
 .flagships { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
 .flag {
   position: relative; display: grid; grid-template-columns: 1fr 1.1fr; gap: 10px; align-items: center;
@@ -201,7 +199,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .flag__price small { display: block; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
 .flag__actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
-/* ---------- Toolbar ---------- */
+/* Toolbar */
 .toolbar { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 18px; }
 .tabs { display: inline-flex; padding: 5px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); }
 .tab { height: 40px; padding: 0 22px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-2); font-size: 14px; font-weight: 700; transition: background .3s, color .3s; }
@@ -222,7 +220,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .budget.is-active { border-color: var(--gold); color: var(--gold-hi); background: rgba(212,176,122,.08); }
 .results { margin: 0 0 22px; font-size: 13px; color: var(--ink-3); letter-spacing: .04em; }
 
-/* ---------- Product grid ---------- */
+/* Product grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 22px; }
 .card {
   position: relative; display: flex; flex-direction: column; border-radius: var(--radius); overflow: hidden;
@@ -264,14 +262,14 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .empty h3 { font-family: var(--serif); font-weight: 800; letter-spacing: -.03em; font-size: 28px; color: var(--ink); margin: 0 0 8px; }
 .fine { margin: 40px 0 0; font-size: 13px; color: var(--ink-3); text-align: center; }
 
-/* ---------- Steps ---------- */
+/* Steps */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .step { padding: 38px 32px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(180deg, var(--surface), var(--bg)); }
 .step__n { font-family: var(--serif); font-weight: 800; letter-spacing: -.05em; font-size: 56px; line-height: 1; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .step h3 { margin: 22px 0 8px; font-family: var(--serif); font-size: 24px; font-weight: 800; letter-spacing: -.03em; }
 .step p { margin: 0; color: var(--ink-2); font-size: 15px; font-weight: 500; }
 
-/* ---------- CTA ---------- */
+/* CTA */
 .cta { margin-bottom: 110px; }
 .cta__inner {
   position: relative; overflow: hidden; text-align: center; padding: 96px 32px; border-radius: 34px;
@@ -280,7 +278,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .cta__inner .lead { margin: 22px auto 38px; }
 
-/* ---------- Footer ---------- */
+/* Footer */
 .footer { border-top: 1px solid var(--line); padding: 64px 0 28px; background: var(--bg-2); }
 .footer__inner { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .footer__brand p { color: var(--ink-3); font-size: 14px; max-width: 280px; }
@@ -290,7 +288,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .footer__cols a:hover { color: var(--ink); }
 .footer__base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); }
 
-/* ---------- Floating WhatsApp ---------- */
+/* Floating WhatsApp */
 .fab {
   position: fixed; right: 24px; bottom: 24px; z-index: 60; display: grid; place-items: center;
   width: 62px; height: 62px; border-radius: 50%; color: #fff; background: #25d366;
@@ -301,7 +299,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .fab:hover { transform: scale(1.08); }
 @keyframes pulse { to { transform: scale(1.6); opacity: 0; } }
 
-/* ---------- Modal ---------- */
+/* Modal */
 .modal {
   width: min(1040px, 100% - 32px); max-height: calc(100% - 32px); padding: 0; border: 1px solid var(--line-2);
   border-radius: 30px; background: var(--surface); color: var(--ink); overflow: auto;
@@ -329,9 +327,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .specs td { color: var(--ink); font-weight: 600; }
 .modal__actions { display: grid; gap: 10px; }
 
-/* =========================================================
-   PRELOADER
-   ========================================================= */
+/* Preloader */
 body.is-loading { overflow: hidden; }
 .preloader { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background: #070708; }
 .preloader::before {
@@ -373,9 +369,7 @@ body.is-loading { overflow: hidden; }
 .preloader.is-leaving { transition: clip-path 1s var(--ease); clip-path: inset(0 0 100% 0); }
 @keyframes curtain { 0% { transform: translateY(100%); } 100% { transform: translateY(0); } }
 
-/* =========================================================
-   VISUAL UPGRADES
-   ========================================================= */
+/* Visual upgrades */
 @keyframes shimmer { to { background-position: 200% center; } }
 
 /* scroll progress */
@@ -470,11 +464,11 @@ body.is-ready .hero__title .line > span { transform: none; }
 .step::before { content: ""; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(closest-side, rgba(212,176,122,.18), transparent); transition: transform .8s var(--ease); }
 .step:hover::before { transform: scale(1.6); }
 
-/* ---------- Reveal on scroll ---------- */
+/* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
 .reveal.is-in { opacity: 1; transform: none; }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 1080px) {
   .nav { display: none; }
   .burger { display: grid; }
