@@ -1,10 +1,7 @@
-/* ===========================================================
-   CellCraft product catalogue
-   -----------------------------------------------------------
+/* CellCraft product catalogue
    Edit prices, badges and specs here. Prices are in South
    African Rand (ZAR). `img` points to a file in assets/phones/;
-   set it to null to show the built-in device render instead.
-   =========================================================== */
+   set it to null to show the built-in device render instead. */
 
 window.CELLCRAFT = {
   whatsapp: "27610697051",          // international format, no "+" or leading 0
@@ -13,7 +10,7 @@ window.CELLCRAFT = {
 };
 
 window.PRODUCTS = [
-  /* ---------------- SAMSUNG ---------------- */
+  /* Samsung */
   {
     id: "a07", brand: "Samsung", series: "Galaxy A", name: "Galaxy A07", price: 2399, img: "a07", year: 2025,
     highlights: ["6.7\" 90Hz display", "50MP camera", "5000mAh"],
@@ -169,7 +166,7 @@ window.PRODUCTS = [
     },
   },
 
-  /* ---------------- APPLE ---------------- */
+  /* Apple */
   {
     id: "ip7", brand: "Apple", series: "iPhone 7–8", name: "iPhone 7", price: 2200, img: "ip7", year: 2016, badge: "Box Pack",
     highlights: ["4.7\" Retina HD", "A10 Fusion", "Touch ID"],

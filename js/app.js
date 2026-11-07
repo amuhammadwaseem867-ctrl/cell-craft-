@@ -13,10 +13,8 @@
     `Hi CellCraft! I'm interested in the ${label(p)} listed at ${money(p.price)}. Is it available?`;
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  /* ---------------------------------------------------------
-     Device render: used where no product photo is available.
-     A clean back-of-device illustration in the right style.
-     --------------------------------------------------------- */
+  /* Device render: used where no product photo is available.
+     A clean back-of-device illustration in the right style. */
   function deviceSVG(p) {
     const uid = `d${p.id}`;
     const apple = p.brand === "Apple";
@@ -61,7 +59,7 @@
       ? `<img class="${cls}" src="assets/phones/${p.img}.jpg" alt="${esc(p.name)}" loading="lazy" decoding="async">`
       : deviceSVG(p);
 
-  /* --------------------------- Flagships --------------------------- */
+  /* Flagships */
   function renderFlagships() {
     const picks = PRODUCTS.filter((p) => p.flagship);
     $("#flagshipGrid").innerHTML = picks
@@ -88,7 +86,7 @@
       .join("");
   }
 
-  /* --------------------------- Collection --------------------------- */
+  /* Collection */
   const state = { brand: "all", q: "", sort: "featured", min: 0, max: Infinity };
 
   function filtered() {
@@ -147,7 +145,7 @@
       : `<div class="empty"><h3>No phones match.</h3><p>Try another search, or <a class="gold-text" href="${waLink("Hi CellCraft! I'm looking for a phone that isn't on the site.")}" target="_blank" rel="noopener">ask us on WhatsApp</a>. We may be able to source it.</p></div>`;
   }
 
-  /* --------------------------- Modal --------------------------- */
+  /* Modal */
   const modal = $("#modal");
   function openModal(id) {
     const p = PRODUCTS.find((x) => x.id === id);
@@ -173,7 +171,7 @@
   }
   const closeModal = () => (modal.close ? modal.close() : modal.removeAttribute("open"));
 
-  /* --------------------------- Wiring --------------------------- */
+  /* Wiring */
   function bind() {
     // WhatsApp links throughout the static markup
     $$(".js-wa").forEach((a) => {
@@ -243,7 +241,7 @@
     els.forEach((el) => io.observe(el));
   }
 
-  /* --------------------------- Effects --------------------------- */
+  /* Effects */
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
@@ -299,7 +297,7 @@
     $(".hero").addEventListener("pointerleave", () => (phones.style.transform = ""));
   }
 
-  /* --------------------------- Preloader --------------------------- */
+  /* Preloader */
   function preloader(onDone) {
     const el = $("#preloader"), bar = $("#plBar"), pct = $("#plPct");
     if (!el) return onDone();
@@ -337,7 +335,7 @@
     requestAnimationFrame(step);
   }
 
-  /* --------------------------- Boot --------------------------- */
+  /* Boot */
   const minPrice = Math.min(...PRODUCTS.map((p) => p.price));
   $("#statModels").textContent = "0";
   $("#statFrom").textContent = money(0);
